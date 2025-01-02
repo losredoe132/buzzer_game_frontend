@@ -1,7 +1,7 @@
 <template>
   <h2>Teams</h2>
   <div class="row">
-    <div>
+    <div class="row q-mt-md q-mr-sm">
       <TeamCard v-for="team in teams" :key="team.id" :name="team.name" :score="team.score" :players="team.players" />
     </div>
     <q-btn color="primary" icon="add" label="Add" />
@@ -19,6 +19,7 @@ let teams = ref(null);
 function loadData() {
   api.get('/api/team')
     .then((response) => {
+      console.log(response.data);
       teams.value = response.data;
     })
     .catch(() => {
