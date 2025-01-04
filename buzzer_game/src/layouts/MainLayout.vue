@@ -34,9 +34,9 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
   {
-    title: 'Users',
+    title: 'Players',
     icon: 'school',
-    link: 'users'
+    link: 'player'
   },
   {
     title: 'Teams',

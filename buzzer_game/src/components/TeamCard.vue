@@ -1,5 +1,6 @@
 <template>
     <q-card>
+        <q-btn color="white" text-color="black" icon="delete" @click="deleteTeam" />
         <q-card-section>
             <h2>
                 {{ name }}
@@ -16,7 +17,6 @@
         </q-card-section>
 
 
-        <q-btn color="white" text-color="black" icon="delete" @click="deleteTeam" />
 
     </q-card>
 
