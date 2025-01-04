@@ -4,7 +4,6 @@ import axios from 'axios';
 import { api } from 'boot/axios';
 import { useQuasar } from 'quasar';
 import { ref } from 'vue'
-const $q = useQuasar()
 const data = ref(null)
 
 export const useTeamStore = defineStore('myStore', {
@@ -12,9 +11,11 @@ export const useTeamStore = defineStore('myStore', {
     data: [], // Store data
   }),
   actions: {
+
     // Fetch data from API
     async fetchData() {
-      api.get('/api/team')
+      const $q = useQuasar()
+      api.get('/api/teasm')
         .then((response) => {
           console.log(response.data)
           this.data = response.data

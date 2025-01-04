@@ -16,11 +16,13 @@
 //
 import TeamCard from 'components/TeamCard.vue'
 import { ref, onMounted } from 'vue'
+import { useQuasar } from 'quasar'
 import { useTeamStore } from 'stores/teamStore'; // Import your Pinia store
 const teamStore = useTeamStore();
 
 
 onMounted(() => {
+
   teamStore.fetchData();
 });
 
