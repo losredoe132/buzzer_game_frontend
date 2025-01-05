@@ -64,5 +64,18 @@ export const usePlayerStore = defineStore('playerStore', {
         console.error('Error deleting item:', error);
       }
     },
+
+    // Assign player to team
+    async assignPlayerToTeam(playerId, teamId) {
+      try {
+        await api.patch(`/api/player/${playerId}/`, { team: teamId });
+        const index = this.data.findIndex((item) => item.id === playerId);
+        this.data[index].team = teamId;
+        console.log(this.data[index])
+
+      } catch (error) {
+        console.error('Error deleting item:', error);
+      }
+    },
   },
 });

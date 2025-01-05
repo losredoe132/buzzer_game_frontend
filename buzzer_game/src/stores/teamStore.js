@@ -33,13 +33,12 @@ export const useTeamStore = defineStore('myStore', {
           this.data.push(response.data); // Add new item to store
         })
         .catch((error) => {
-          // $q.notify({
-          //   color: 'negative',
-          //   position: 'top',
-          //   message: 'Loading failed',
-          //   icon: 'report_problem'
-          // })
-          console.log(error)
+          $q.notify({
+            color: 'negative',
+            position: 'top',
+            message: error,
+            icon: 'report_problem'
+          })
         })
     },
     // Update an item
@@ -48,7 +47,7 @@ export const useTeamStore = defineStore('myStore', {
         await api.put(`/api/resource/${updatedItem.id}`, updatedItem);
         const index = this.data.findIndex((item) => item.id === updatedItem.id);
         if (index !== -1) {
-          this.data[index] = updatedItem; // Update store
+          this.data.splice(index, iondex + 1, updatedItem); // Update store
         }
       } catch (error) {
         console.error('Error updating item:', error);

@@ -35,22 +35,22 @@ import EssentialLink from 'components/EssentialLink.vue'
 const linksList = [
   {
     title: 'Players',
-    icon: 'school',
+    icon: 'person',
     link: 'players'
   },
   {
     title: 'Teams',
-    icon: 'school',
+    icon: 'groups',
     link: 'teams'
   },
   {
     title: 'Game',
-    icon: 'code',
+    icon: 'sports_esports',
     link: 'game'
   },
   {
     title: 'Settings',
-    icon: 'chat',
+    icon: 'settings',
     link: 'settings'
   },
 
