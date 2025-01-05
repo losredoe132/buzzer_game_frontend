@@ -30,6 +30,7 @@
 import UserItem from 'src/components/UserItem.vue'
 
 import { useTeamStore } from 'stores/teamStore'; // Import your Pinia store
+const teamStore = useTeamStore();
 
 
 defineProps({
@@ -38,17 +39,11 @@ defineProps({
     score: Number,
     players: Array
 })
-const teamStore = useTeamStore();
 
 
 // Delete an item
 function deleteTeam(itemId) {
-    try {
-        teamStore.delete(`/api/resource/${itemId}`);
-        this.data = this.data.filter((item) => item.id !== itemId); // Update store
-    } catch (error) {
-        console.error('Error deleting item:', error);
-    }
+    teamStore.deleteItem(itemId)
 }
 
 </script>

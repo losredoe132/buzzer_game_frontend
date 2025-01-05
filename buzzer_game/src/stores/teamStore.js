@@ -58,7 +58,7 @@ export const useTeamStore = defineStore('myStore', {
     // Delete an item
     async deleteItem(itemId) {
       try {
-        await api.delete(`/api/teams/${itemId}`);
+        await api.delete(`/api/team/${itemId}/`);
         this.data = this.data.filter((item) => item.id !== itemId); // Update store
       } catch (error) {
         console.error('Error deleting item:', error);
