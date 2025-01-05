@@ -1,12 +1,14 @@
 <template>
-    <q-card>
-        <q-btn color="white" text-color="black" icon="delete" @click="deleteTeam" />
+    <q-card class="relative">
+        <div class="absolute-top-right">
+            <q-btn color="white" text-color="black" icon="delete" @click="deleteTeam" />
+
+        </div>
         <q-card-section>
-            <h2>
+            <h6>
                 {{ name }}
-            </h2>
-            <h6> Score</h6>
-            <div> {{ score }}</div>
+            </h6>
+            <div> Score{{ score }}</div>
         </q-card-section>
         <q-card-section>
             <div class="column q-mt-md q-mr-sm">

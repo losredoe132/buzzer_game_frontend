@@ -3,8 +3,6 @@ import { defineStore } from 'pinia';
 import axios from 'axios';
 import { api } from 'boot/axios';
 import { useQuasar } from 'quasar';
-import { ref } from 'vue'
-const data = ref(null)
 
 export const useTeamStore = defineStore('myStore', {
   state: () => ({
@@ -15,7 +13,7 @@ export const useTeamStore = defineStore('myStore', {
     // Fetch data from API
     async fetchData() {
       const $q = useQuasar()
-      api.get('/api/teasm')
+      api.get('/api/team')
         .then((response) => {
           console.log(response.data)
           this.data = response.data
