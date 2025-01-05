@@ -36,7 +36,7 @@ const linksList = [
   {
     title: 'Players',
     icon: 'school',
-    link: 'player'
+    link: 'players'
   },
   {
     title: 'Teams',
