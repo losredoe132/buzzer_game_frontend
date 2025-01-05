@@ -70,7 +70,7 @@ export const usePlayerStore = defineStore('playerStore', {
       try {
         await api.patch(`/api/player/${playerId}/`, { team: teamId });
         const index = this.data.findIndex((item) => item.id === playerId);
-        this.data[index].team = teamId;
+        this.data.value.splice(index, 1, { ...this.data[index], team: teamId });
         console.log(this.data[index])
 
       } catch (error) {

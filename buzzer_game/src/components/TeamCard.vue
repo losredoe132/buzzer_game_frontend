@@ -5,7 +5,7 @@
                 {{ teamId }}
             </div>
             <div>
-                <q-btn color="white" text-color="black" icon="delete" @click="deleteTeam(id)" />
+                <q-btn color="white" text-color="black" icon="delete" @click="deleteTeam(teamId)" />
             </div>
         </div>
 
