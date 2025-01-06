@@ -1,8 +1,6 @@
 <template>
     <q-item clickable v-close-popup @click="addPlayerToTeam(playerId, teamId)">
-        <q-item-section>
-            {{ name }}
-        </q-item-section>
+        {{ name }}
     </q-item>
 
 
@@ -20,6 +18,7 @@ defineProps({
 })
 
 const addPlayerToTeam = (playerId, teamId) => {
+    // todo show dialog if player is already assigned and if player should be moved from one team to another
     playerStore.assignPlayerToTeam(playerId, teamId);
 };
 

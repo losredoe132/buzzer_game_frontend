@@ -8,7 +8,8 @@
 
 <script lang="ts">
 import { onMounted, onUnmounted } from 'vue';
-import { useSSEStore } from '/stores/sseStore';
+import { useSSEStore } from 'stores/sseStore';
+
 
 export default {
   setup() {

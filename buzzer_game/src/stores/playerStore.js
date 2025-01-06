@@ -73,7 +73,6 @@ export const usePlayerStore = defineStore('playerStore', {
     async assignPlayerToTeam(playerId, teamId) {
       try {
         await api.patch(`/api/player/${playerId}/`, { team: teamId });
-        console.log(this.data)
         const index = this.data.findIndex((item) => item.id === playerId)
         this.data[index].team = teamId
 

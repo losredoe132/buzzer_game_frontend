@@ -18,10 +18,10 @@
             </div>
         </q-card-section>
         <q-card-section>
-            <div class="column q-mt-md q-mr-sm">
+            <div class="column ">
                 <UserItem v-for="player in players" :key="player.name" :name="player.name" :id="player.id"
                     :teamId="player.team" />
-                <q-btn color="white" text-color="black" icon="add">
+                <q-btn class="q-pa-xsm q-ma-sm" color="white" text-color="black" icon="add">
                     <q-menu>
                         <PlayerAssignment v-for="p in playerStore.data" :key="p.name" :playerId="p.id" :name="p.name"
                             :teamId="teamId" />
@@ -56,16 +56,6 @@ defineProps({
 function deleteTeam(itemId) {
     teamStore.deleteItem(itemId)
 }
-
-const getAllPlayers = () => {
-    playerStore.fetchData();
-};
-
-const addPlayerToTeam = (player_id, team_id) => {
-    playerStore.assignPlayerToTeam(player_id, team_id);
-};
-
-
 
 
 
