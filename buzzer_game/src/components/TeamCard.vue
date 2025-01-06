@@ -19,7 +19,8 @@
         </q-card-section>
         <q-card-section>
             <div class="column q-mt-md q-mr-sm">
-                <UserItem v-for="player in players" :key="player.name" :name="player.name" />
+                <UserItem v-for="player in players" :key="player.name" :name="player.name" :id="player.id"
+                    :teamId="player.team" />
                 <q-btn color="white" text-color="black" icon="add">
                     <q-menu>
                         <PlayerAssignment v-for="p in playerStore.data" :key="p.name" :playerId="p.id" :name="p.name"
@@ -37,7 +38,6 @@ import UserItem from 'src/components/UserItem.vue'
 import PlayerAssignment from 'src/components/PlayerAssignment.vue'
 import { usePlayerStore } from 'stores/playerStore'; // Import your Pinia store
 import { useTeamStore } from 'stores/teamStore'; // Import your Pinia store
-import { onMounted, ref } from 'vue';
 
 const playerStore = usePlayerStore();
 const teamStore = useTeamStore();
@@ -51,9 +51,6 @@ defineProps({
 })
 
 
-onMounted(() => {
-    console.log(playerStore.data)
-});
 
 // Delete an item
 function deleteTeam(itemId) {

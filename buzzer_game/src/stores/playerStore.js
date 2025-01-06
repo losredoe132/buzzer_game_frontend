@@ -2,11 +2,15 @@
 import { defineStore } from 'pinia';
 import { api } from 'boot/axios';
 import { useQuasar } from 'quasar';
+import { useTeamStore } from 'stores/teamStore'; // Import your Pinia store
+import { reactive } from 'vue';
 const $q = useQuasar();
+
+const teamStore = useTeamStore();
 
 export const usePlayerStore = defineStore('playerStore', {
   state: () => ({
-    data: [], // Store data
+    data: reactive([]), // Store data
   }),
   actions: {
 
@@ -14,8 +18,8 @@ export const usePlayerStore = defineStore('playerStore', {
     async fetchData() {
       api.get('/api/player')
         .then((response) => {
-          console.log(response.data)
           this.data = response.data
+          console.log(response.data)
         })
         .catch(() => {
           $q.notify({
@@ -69,9 +73,13 @@ export const usePlayerStore = defineStore('playerStore', {
     async assignPlayerToTeam(playerId, teamId) {
       try {
         await api.patch(`/api/player/${playerId}/`, { team: teamId });
-        const index = this.data.findIndex((item) => item.id === playerId);
-        this.data.value.splice(index, 1, { ...this.data[index], team: teamId });
-        console.log(this.data[index])
+        console.log(this.data)
+        const index = this.data.findIndex((item) => item.id === playerId)
+        this.data[index].team = teamId
+
+        // refetch teamStore, because the teamStore is used to show the list of users in a team  
+        // We could also manually move the player from on team to the other in the store but refetching from the backend is more robust. 
+        teamStore.fetchData();
 
       } catch (error) {
         console.error('Error deleting item:', error);

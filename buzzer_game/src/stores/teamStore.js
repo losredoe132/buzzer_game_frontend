@@ -47,7 +47,7 @@ export const useTeamStore = defineStore('myStore', {
         await api.put(`/api/resource/${updatedItem.id}`, updatedItem);
         const index = this.data.findIndex((item) => item.id === updatedItem.id);
         if (index !== -1) {
-          this.data.splice(index, iondex + 1, updatedItem); // Update store
+          this.data[index] = updatedItem; // Update store
         }
       } catch (error) {
         console.error('Error updating item:', error);
