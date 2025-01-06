@@ -16,7 +16,7 @@ export default {
     const sseStore = useSSEStore();
     let eventSource;
     onMounted(() => {
-      eventSource = new EventSource('http://localhost:3000/events');
+      eventSource = new EventSource('http://localhost:8000/events');
 
       eventSource.onmessage = (event) => {
         const partialUpdate = JSON.parse(event.data);
