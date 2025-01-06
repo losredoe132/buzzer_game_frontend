@@ -41,7 +41,7 @@ import UserItem from 'src/components/UserItem.vue'
 import PlayerAssignment from 'src/components/PlayerAssignment.vue'
 import { usePlayerStore } from 'stores/playerStore'; // Import your Pinia store
 import { useTeamStore } from 'stores/teamStore'; // Import your Pinia store
-import { reactive, computed } from 'vue'
+import { computed } from 'vue'
 
 const playerStore = usePlayerStore();
 const teamStore = useTeamStore();
