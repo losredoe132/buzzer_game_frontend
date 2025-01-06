@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>Server-Sent Events</h1>
-    <p>Message: {{ sseStore.sseData.message }}</p>
-    <p>Timestamp: {{ sseStore.sseData.timestamp }}</p>
+    <p>Active Team: {{ sseStore.sseData.active_team_id }}</p>
+    <p>State: {{ sseStore.sseData.state }}</p>
   </div>
 </template>
 

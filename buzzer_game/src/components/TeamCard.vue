@@ -23,7 +23,10 @@
                     :teamId="player.team" />
                 <q-btn class="q-pa-xsm q-ma-sm" color="white" text-color="black" icon="add">
                     <q-menu>
-                        <PlayerAssignment v-for="p in playerStore.data" :key="p.name" :playerId="p.id" :name="p.name"
+                        <PlayerAssignment v-for="p in unassignedPlayers" :key="p.name" :playerId="p.id" :name="p.name"
+                            :teamId="teamId" />
+                        <q-separator />
+                        <PlayerAssignment v-for="p in assignedPlayers" :key="p.name" :playerId="p.id" :name="p.name"
                             :teamId="teamId" />
                     </q-menu>
                 </q-btn>
@@ -38,9 +41,12 @@ import UserItem from 'src/components/UserItem.vue'
 import PlayerAssignment from 'src/components/PlayerAssignment.vue'
 import { usePlayerStore } from 'stores/playerStore'; // Import your Pinia store
 import { useTeamStore } from 'stores/teamStore'; // Import your Pinia store
+import { reactive, computed } from 'vue'
 
 const playerStore = usePlayerStore();
 const teamStore = useTeamStore();
+
+
 
 
 defineProps({
@@ -56,7 +62,11 @@ defineProps({
 function deleteTeam(itemId) {
     teamStore.deleteItem(itemId)
 }
-
-
+const unassignedPlayers = computed(() => {
+    return playerStore.data.filter((player) => player.team == null)
+})
+const assignedPlayers = computed(() => {
+    return playerStore.data.filter((player) => player.team != null)
+})
 
 </script>
