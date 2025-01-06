@@ -26,8 +26,8 @@
                         <PlayerAssignment v-for="p in unassignedPlayers" :key="p.name" :playerId="p.id" :name="p.name"
                             :teamId="teamId" />
                         <q-separator />
-                        <PlayerAssignment v-for="p in assignedPlayers" :key="p.name" :playerId="p.id" :name="p.name"
-                            :teamId="teamId" />
+                        <PlayerAssignment :style="{ color: 'grey' }" v-for="p in assignedPlayers" :key="p.name"
+                            :playerId="p.id" :name="p.name" :teamId="teamId" />
                     </q-menu>
                 </q-btn>
             </div>
